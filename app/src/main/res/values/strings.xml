@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AWHealth</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <!-- 通知-->
+    <string name="headsup_titile">健康资讯</string>
+    <string name="headsup_content">有新的健康资讯推送信息，快来查阅吧</string>
+
+    <string name="text_collection">收藏</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="snap_load_fail">加载失败，请重试</string>
+    <string name="retry">重试</string>
+</resources>

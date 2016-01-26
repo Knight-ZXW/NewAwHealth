@@ -1,0 +1,20 @@
+<com.think.awhealth.widget.MultiSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/swipe_refresh_layout"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.think.awhealth.ui.commonFragment.HealthNewsFragment"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_recyclerView"
+        android:layout_marginTop="?actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        ></android.support.v7.widget.RecyclerView>
+
+</com.think.awhealth.widget.MultiSwipeRefreshLayout>

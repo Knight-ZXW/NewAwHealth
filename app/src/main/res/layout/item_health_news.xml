@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="10dp"
+    android:foreground="?android:selectableItemBackground"
+    android:layout_marginBottom="@dimen/card_margin"
+    android:layout_marginLeft="@dimen/card_margin"
+
+    android:layout_marginRight="@dimen/card_margin"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/id_item_title"
+            android:textSize="@dimen/title_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            />
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/id_item_image"
+            android:padding="@dimen/item_padding"
+            android:layout_width="360dp"
+            android:layout_height="@dimen/item_image_height_200"
+            app:actualImageScaleType="focusCrop"
+            app:placeholderImage="@mipmap/ic_launcher"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:padding="10dp"
+            >
+
+            <CheckBox
+                android:id="@+id/id_item_collect_cb"
+                style="@style/CustomCollectTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/id_item_collect_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/collect_cb"
+                android:clickable="true"
+                android:text="@string/text_collection"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
