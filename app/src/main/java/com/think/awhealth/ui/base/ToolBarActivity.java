@@ -48,7 +48,7 @@ public abstract class ToolBarActivity extends BaseActivity{
 
 
 
-    private boolean canBack() {
+    protected boolean canBack() {
         return false;
     }
 
@@ -74,7 +74,7 @@ public abstract class ToolBarActivity extends BaseActivity{
         mIsHidden = !mIsHidden;
     }
 
-    public void onToolbarClick() {
+    protected void onToolbarClick() {
 
     }
 }

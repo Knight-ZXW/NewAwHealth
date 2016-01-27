@@ -11,7 +11,7 @@ import com.think.awhealth.ui.base.ViewPagerFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HealthInforFragment extends ViewPagerFragment {
+public class HealthInforViewPagerFragment extends ViewPagerFragment {
     @Override
     protected int provideLayoutId() {
         return R.layout.fragment_health_infor;

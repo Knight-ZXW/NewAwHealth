@@ -3,8 +3,9 @@ package com.think.awhealth.ui.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
 
-import com.think.awhealth.ui.commonFragment.HealthNewsFragment;
+import com.think.awhealth.ui.healthInfor.HealthNewsFragment;
 
 /**
  * Created by XiuWuZhuo on 2016/1/25.

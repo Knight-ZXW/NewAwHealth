@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.think.awhealth.R;
@@ -40,7 +39,14 @@ public class RecyclerNewsAdapter extends RecyclerView.Adapter<RecyclerNewsAdapte
         HealthInfor healthInfor = mdatas.get(position);
         holder.image.setImageURI(Uri.parse("http://tnfs.tngou.net/image" +healthInfor.getImg()));
         holder.title.setText(healthInfor.getTitle());
-        holder.checkBox.setChecked(false);
+        holder.wrapView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onCradItemClick(position,holder.title);
+                }
+            }
+        });
     }
 
     @Override
@@ -54,21 +60,23 @@ public class RecyclerNewsAdapter extends RecyclerView.Adapter<RecyclerNewsAdapte
 
         @InjectView(R.id.id_item_image)
         SimpleDraweeView image;
-        @InjectView(R.id.id_item_collect_cb)
-        CheckBox checkBox;
 
         View wrapView;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.inject(this, itemView);
             wrapView = itemView;
-            wrapView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(),"click",Toast.LENGTH_LONG).show();
-                }
-            });
+
         }
 
+    }
+    private onCardClickListener mListener;
+    public void setOnCardClickListener(onCardClickListener listener){
+        this.mListener = listener;
+    }
+
+    public interface  onCardClickListener{
+        void onCradItemClick(int id,TextView view);
+//        void onCollect
     }
 }

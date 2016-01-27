@@ -13,7 +13,7 @@ import rx.Observable;
  */
 public interface TinaGouApi {
     @GET("info/list")
-    abstract Observable<HealthInforData> getHealthInforData(@Query("id")int classifyId,@Query("page")int page);
+    Observable<HealthInforData> getHealthInforData(@Query("id")int classifyId,@Query("page")int page);
     @GET("info/show")
     Observable<HealthInfor> getHealthInforDetail(@Query("id")int itemId);
 }

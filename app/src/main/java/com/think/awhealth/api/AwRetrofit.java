@@ -1,9 +1,13 @@
 package com.think.awhealth.api;
 
-import android.view.ViewGroup;
+import android.os.Environment;
+import android.util.Log;
 
+import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
+import com.think.awhealth.util.OkHttpUtils;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import retrofit.GsonConverterFactory;
@@ -16,27 +20,22 @@ import retrofit.RxJavaCallAdapterFactory;
  */
 public class AwRetrofit {
     final TinaGouApi tinaGouApi;
-
+    final OkHttpClient okHttpClient;
     public AwRetrofit() {
-        OkHttpClient client = new OkHttpClient();
-//            client.interceptors()
-//                    .add(new Interceptor() {
-//                        @Override
-//                        public Response intercept(Chain chain) throws IOException {
-//                            Request request = chain.request();
-//                            String format = String.format("Interceptor:Sending request url=%s%n connection=%s%n headers=%s",
-//                                    request.url(), chain.connection(), request.headers());
-//                            Log.w("logger", format);
-//                            Response response = chain.proceed(request);
-//                            String string = response.body().string();
-//                            Log.w("logger",string);
-//                            return response;
-//                        }
-//                    });
-        client.setReadTimeout(12, TimeUnit.SECONDS);
+        okHttpClient = new OkHttpClient();
+        File cacheFile;
+        Log.w("logger", Environment.getExternalStorageState() + "=" + Environment.MEDIA_MOUNTED);
+        cacheFile = Environment.getExternalStorageDirectory();
+//        cacheFile = App.getInstance().getExternalCacheDir();
+        okHttpClient.setCache(new Cache(cacheFile, 1024 * 1024 * 10));
+
+        okHttpClient.setReadTimeout(10, TimeUnit.SECONDS);
+        okHttpClient.setWriteTimeout(10, TimeUnit.SECONDS);
+        okHttpClient.networkInterceptors().add(OkHttpUtils.getCacheControlInterceptor());
+
         Retrofit.Builder builder = new Retrofit.Builder();
         builder.baseUrl("http://www.tngou.net/api/")
-                .client(client)
+                .client(okHttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -46,6 +45,10 @@ public class AwRetrofit {
 
     public TinaGouApi getTianGouApi() {
         return tinaGouApi;
+    }
+
+    public OkHttpClient getOkHttpClient(){
+        return okHttpClient;
     }
 
 }

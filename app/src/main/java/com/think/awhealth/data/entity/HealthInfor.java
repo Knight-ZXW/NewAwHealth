@@ -1,11 +1,15 @@
 package com.think.awhealth.data.entity;
 
+import com.litesuits.orm.db.annotation.Column;
+import com.litesuits.orm.db.annotation.NotNull;
+import com.litesuits.orm.db.annotation.Table;
+import com.litesuits.orm.db.annotation.Unique;
+
 /**
  * Created by XiuWuZhuo on 2016/1/24.
  * Emial:nimdanoob@163.com
  */
-public class HealthInfor {
-
+@Table("healthInfors")public class HealthInfor extends Soul{
 
     /**
      * count : 59
@@ -23,7 +27,9 @@ public class HealthInfor {
     private int count;
     private String description;
     private int fcount;
-    private int id;
+    @NotNull
+    @Unique
+    @Column("id")private int id;
     private String img;
     private int infoclass;
     private String keywords;
@@ -135,4 +141,6 @@ public class HealthInfor {
                 ", title='" + title + '\'' +
                 '}';
     }
+
+
 }

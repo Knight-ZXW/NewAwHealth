@@ -2,7 +2,14 @@
 <manifest package="com.think.awhealth"
           xmlns:android="http://schemas.android.com/apk/res/android"
     >
+
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -28,13 +35,18 @@
                 <action android:name="com.think.awhealth.alarm"/>
             </intent-filter>
         </receiver>
-
         <receiver android:name=".service.KeepAlarmLiveReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT"/>
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".ui.healthInfor.HealthInforDetailActivity"
+            android:label="@string/title_activity_health_infor_detail"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+        </activity>
     </application>
 
 </manifest>

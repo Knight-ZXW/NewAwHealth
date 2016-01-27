@@ -8,6 +8,30 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="card_margin">5dp</dimen>
     <dimen name="title_size">20sp</dimen>
+
+    <dimen name="app_bar_height">256dp</dimen>
+
     <dimen name="item_image_height_200">200dp</dimen>
+    <dimen name="item_image_width_360">360dp</dimen>
     <dimen name="item_padding">15dp</dimen>
+
+
+    <!-- Material-->
+    <dimen name="Material_Button">14sp</dimen>
+    <dimen name="Material_Menu">14sp</dimen>
+    <dimen name="Material_Caption">12sp</dimen>
+    <dimen name="Material_focus">18sp</dimen>
+    <dimen name="Material_Body">14sp</dimen>
+    <dimen name="Material_SubHead">16sp</dimen>
+    <dimen name="Material_Title">20sp</dimen>
+    <dimen name="Material_Headline">14sp</dimen>
+    <dimen name="Material_Display1">34sp</dimen>
+    <dimen name="Material_Display2">45sp</dimen>
+    <dimen name="Material_Display3">56sp</dimen>
+    <dimen name="Material_Display4">112sp</dimen>
+
+
+    <dimen name="Materila_margin_normal">32dp</dimen>
+    <dimen name="Material_margin_small1x">8dp</dimen>
+    <dimen name="Material_margin_small2x">16dp</dimen>
 </resources>

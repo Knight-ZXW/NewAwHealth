@@ -5,7 +5,7 @@
         <item
             android:id="@+id/nav_healthInfor"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import"
+            android:title="健康资讯"
             />
         <item
             android:id="@+id/nav_gallery"
@@ -24,12 +24,12 @@
             />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="其他">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share"
+                android:title="分享应用"
                 />
             <item
                 android:id="@+id/nav_send"
