@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.think.awhealth.ui.search.SearchActivity"
+    >
+    <include layout="@layout/view_toolbar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/img_search_disease"
+            android:layout_width="@dimen/View_Search_Big_Menu_Icon"
+            android:layout_height="@dimen/View_Search_Big_Menu_Icon"
+            android:src="@mipmap/ic_disease"
+            />
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            />
+        <ImageView
+            android:id="@+id/img_search_drug"
+            android:layout_width="@dimen/View_Search_Big_Menu_Icon"
+            android:layout_height="@dimen/View_Search_Big_Menu_Icon"
+            android:src="@mipmap/ic_drugs"
+            />
+    </LinearLayout>
+</RelativeLayout>

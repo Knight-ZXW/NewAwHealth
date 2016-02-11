@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="偏好">
+        <Preference
+            android:key="language"
+            android:title="语言"
+            />
+        <Preference
+            android:key="search"
+            android:title="搜索"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="网络">
+        <Preference
+            android:key="@string/setting_key_clear_cache"
+            android:title="清除缓存"
+            android:summary="清楚包括图片和文本的本地缓存与内存缓存"/>
+    </PreferenceCategory>
+</PreferenceScreen>

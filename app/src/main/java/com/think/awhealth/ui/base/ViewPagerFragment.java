@@ -5,6 +5,7 @@ import android.support.annotation.LayoutRes;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,23 +27,28 @@ public abstract class ViewPagerFragment extends BaseFragment{
         // Required empty public constructor
     }
 
+
+
     protected abstract @LayoutRes int provideLayoutId();
 
     protected abstract PagerAdapter providePagerAdapter();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_health_infor, container, false);
+        Log.w("logger","onCreateView");
+        return inflater.inflate(provideLayoutId(), container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        Log.w("logger","onViewCreate");
 //        NewsPagerAdapter adapter = new NewsPagerAdapter(getActivity().getSupportFragmentManager());
-        mViewPager.setAdapter(providePagerAdapter());
+        PagerAdapter mPagerAdapter = providePagerAdapter();
+        mViewPager.setAdapter(mPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        mPagerAdapter.notifyDataSetChanged();
     }
 
 }

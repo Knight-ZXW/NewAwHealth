@@ -1,6 +1,8 @@
 package com.think.awhealth;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,9 +10,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.think.awhealth.ui.base.BaseMainActivity;
 import com.think.awhealth.ui.healthInfor.HealthInforViewPagerFragment;
+import com.think.awhealth.ui.search.SearchActivity;
+import com.think.awhealth.ui.search.SearchFragment;
+import com.think.awhealth.ui.setting.SettingsActivity;
 import com.think.awhealth.util.AlarmManagerUtils;
 
 import butterknife.InjectView;
@@ -21,6 +25,7 @@ public class MainActivity extends BaseMainActivity {
     private FragmentManager mFragmentManager;
     private int mCurrentItemId;
     private Menu menu;
+    private SearchFragment mSearchFragment;
 
     @Override
     protected int provideContentViewId() {
@@ -38,7 +43,9 @@ public class MainActivity extends BaseMainActivity {
     }
 
     private void initData() {
-
+        Integer params=1;
+        if (params instanceof Object){
+        }
     }
 
     private void initVariables() {
@@ -47,28 +54,29 @@ public class MainActivity extends BaseMainActivity {
 
 
     @Override
-    public void navigationItemSelected(MenuItem id) {
+    public boolean navigationItemSelected(MenuItem id) {
         int itemId = id.getItemId();
-        if (mCurrentItemId == itemId)
-            return;
+        Boolean b = true;
+        if (mCurrentItemId == itemId && mCurrentItemId != R.id.nav_setting)
+            return b;
         switch (itemId) {
             case R.id.nav_healthInfor:
+                switchFragment(new HealthInforViewPagerFragment(), getString(R.string.title_HealthInfor), R.menu.menu_healthinfor);
                 break;
+            case R.id.nav_setting:
+                toSetting();
+                break;
+            case R.id.nav_query:
+                forwardToActivity(SearchActivity.class);
+                //因为这个是Activity，所以回退的时候要保持menu的一致
+                itemId = mCurrentItemId;
+                b = false;
+                mNavigationView.setCheckedItem(itemId);
+                break;
+
         }
         mCurrentItemId = itemId;
-    }
-
-    private void switchFragment(Fragment fragment, String title, int resourceMenu) {
-        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.id_fragmentContainer, fragment);
-        getSupportActionBar().setTitle(title);
-        fragmentTransaction.commit();
-        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this).build();
-
-        if (menu != null) {
-            menu.clear();
-            getMenuInflater().inflate(resourceMenu, menu);
-        }
+        return b;
     }
 
     @Override
@@ -86,8 +94,41 @@ public class MainActivity extends BaseMainActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        Environment.getExternalStorageDirectory();
+        getExternalCacheDir();
 
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * switch 要显示的fragment
+     * @param fragment 要显示的fragment
+     * @param title 标题
+     * @param resourceMenu 菜单的资源id,替换MainActivity的菜单资源
+     */
+    private void switchFragment(Fragment fragment, String title, int resourceMenu) {
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.id_fragmentContainer, fragment);
+        getSupportActionBar().setTitle(title);
+        fragmentTransaction.commit();
+
+        if (menu != null) {
+            menu.clear();
+            getMenuInflater().inflate(resourceMenu, menu);
+        }
+    }
+
+    /**
+     * 跳转到Setting 界面
+     */
+    private void toSetting() {
+        Intent intent = new Intent();
+        intent.setClass(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+    private void forwardToActivity(Class<?> classActivity){
+        Intent intent = new Intent();
+        intent.setClass(this, classActivity);
+        startActivity(intent);
+    }
 }

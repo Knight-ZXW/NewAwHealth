@@ -112,4 +112,8 @@ public class HealthNewsFragment extends SwipeRefreshBaseFragment {
         addSubscription(s);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

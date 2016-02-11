@@ -8,9 +8,9 @@
             android:title="健康资讯"
             />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_query"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery"
+            android:title="查一查"
             />
         <item
             android:id="@+id/nav_slideshow"
@@ -18,7 +18,7 @@
             android:title="Slideshow"
             />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_setting"
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools"
             />

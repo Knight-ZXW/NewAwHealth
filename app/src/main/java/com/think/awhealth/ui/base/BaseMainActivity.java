@@ -45,25 +45,25 @@ public abstract class BaseMainActivity extends ToolBarActivity implements Naviga
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        navigationItemSelected(item);
-        if (id == R.id.nav_healthInfor) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+//        int id = item.getItemId();
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
+//        if (id == R.id.nav_healthInfor) {
+//            // Handle the camera action
+//        } else if (id == R.id.nav_gallery) {
+//
+//        } else if (id == R.id.nav_slideshow) {
+//
+//        } else if (id == R.id.nav_manage) {
+//
+//        } else if (id == R.id.nav_share) {
+//
+//        } else if (id == R.id.nav_send) {
+//
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return navigationItemSelected(item);
     }
 
     @Override
@@ -76,5 +76,5 @@ public abstract class BaseMainActivity extends ToolBarActivity implements Naviga
         }
     }
 
-    public abstract void navigationItemSelected(MenuItem id);
+    public abstract boolean navigationItemSelected(MenuItem id);
 }

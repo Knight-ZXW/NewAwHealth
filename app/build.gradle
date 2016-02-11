@@ -50,6 +50,10 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile project(':libraries:headsupcompat')
+//    内存泄露
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1' // or 1.4-beta1
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1' // or 1.4-beta1
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1' // or 1.4-beta1
     //    日志
     //    日志
     //    compile files('libs/baidumapapi_v3_6_1.jar')
@@ -61,8 +65,9 @@ dependencies {
     //    compile files('libs/baidumapapi_util_v3_6_1.jar')
     //    compile files('libs/baidumapapi_v3_5_0.jar')
     //    compile files('libs/locSDK_6.13.jar')
+    //    共享动画兼容库
+    compile files('libs/lite-orm-1.7.0.jar')
     compile 'com.github.orhanobut:logger:1.12'
-//    共享动画兼容库
     compile 'com.kogitune:pre-lollipop-activity-transition:1.0.0'
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
@@ -87,6 +92,4 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.0'
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'com.facebook.fresco:imagepipeline-okhttp:0.8.1'
-    compile files('libs/lite-orm-1.5.1.jar')
-    compile files('libs/lite-orm-1.7.0.jar')
 }

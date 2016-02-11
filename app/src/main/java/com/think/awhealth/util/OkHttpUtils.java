@@ -77,6 +77,7 @@ public class OkHttpUtils {
                         request.url(), chain.connection(), request.headers());
                 Log.w("logger", format);
                 Response response = chain.proceed(request);
+                Log.w("looger","response:"+response.message());
                 Log.w("logger", "Response 1 cache response:    " + response.cacheResponse());
                 Log.w("logger", "Response 1 network response:  " + response.networkResponse());
                 return response.newBuilder().header("Cache-Control", "public, max-age=86400").build();

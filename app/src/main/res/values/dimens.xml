@@ -34,4 +34,9 @@
     <dimen name="Materila_margin_normal">32dp</dimen>
     <dimen name="Material_margin_small1x">8dp</dimen>
     <dimen name="Material_margin_small2x">16dp</dimen>
+
+
+    <!--Search-->
+    <!--大的搜索图片的宽高-->
+    <dimen name="View_Search_Big_Menu_Icon">160dp</dimen>
 </resources>
