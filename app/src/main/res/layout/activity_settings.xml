@@ -8,6 +8,7 @@
     >
     <include layout="@layout/view_toolbar"/>
     <FrameLayout
+        android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/id_fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

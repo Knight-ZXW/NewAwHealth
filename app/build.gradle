@@ -92,4 +92,6 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.0'
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'com.facebook.fresco:imagepipeline-okhttp:0.8.1'
+// UI
+    compile 'com.github.wangjiegulu:RapidFloatingActionButton:1.0.3'
 }

@@ -2,6 +2,7 @@ package com.think.awhealth;
 
 import android.app.Application;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.litesuits.orm.LiteOrm;
@@ -31,6 +32,7 @@ public class App extends Application {
         super.onCreate();
 
         Fresco.initialize(this);
+        SDKInitializer.initialize(getApplicationContext());
         mRefWatcher = LeakCanary.install(this);
         ImagePipeline imagePipeline = Fresco.getImagePipeline();
 

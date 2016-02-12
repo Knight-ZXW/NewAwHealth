@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.think.awhealth.ui.base.BaseMainActivity;
 import com.think.awhealth.ui.healthInfor.HealthInforViewPagerFragment;
+import com.think.awhealth.ui.map.PeripheralMapActivity;
 import com.think.awhealth.ui.search.SearchActivity;
 import com.think.awhealth.ui.search.SearchFragment;
 import com.think.awhealth.ui.setting.SettingsActivity;
@@ -69,6 +70,12 @@ public class MainActivity extends BaseMainActivity {
             case R.id.nav_query:
                 forwardToActivity(SearchActivity.class);
                 //因为这个是Activity，所以回退的时候要保持menu的一致
+                itemId = mCurrentItemId;
+                b = false;
+                mNavigationView.setCheckedItem(itemId);
+                break;
+            case R.id.nav_map:
+                forwardToActivity(PeripheralMapActivity.class );
                 itemId = mCurrentItemId;
                 b = false;
                 mNavigationView.setCheckedItem(itemId);

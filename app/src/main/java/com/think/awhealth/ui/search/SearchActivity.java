@@ -32,7 +32,6 @@ public class SearchActivity extends ToolBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
         ButterKnife.inject(this);
     }
 
@@ -75,7 +74,5 @@ public class SearchActivity extends ToolBarActivity {
         intent.setClass(this, activity);
         startActivity(intent);
     }
-
-
 
 }
