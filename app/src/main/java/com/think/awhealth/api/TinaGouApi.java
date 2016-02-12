@@ -1,6 +1,8 @@
 package com.think.awhealth.api;
 
+import com.think.awhealth.data.DrugSearchData;
 import com.think.awhealth.data.HealthInforData;
+import com.think.awhealth.data.entity.Disease;
 import com.think.awhealth.data.entity.HealthInfor;
 
 import retrofit.http.GET;
@@ -16,4 +18,8 @@ public interface TinaGouApi {
     Observable<HealthInforData> getHealthInforData(@Query("id")int classifyId,@Query("page")int page);
     @GET("info/show")
     Observable<HealthInfor> getHealthInforDetail(@Query("id")int itemId);
+    @GET("search?name=drug")
+    Observable<DrugSearchData> getDrugData(@Query("keyword")String keyword, @Query("type")String type);
+    @GET("disease/name?")
+    Observable<Disease> getDiseaseByName(@Query("name") String name);
 }

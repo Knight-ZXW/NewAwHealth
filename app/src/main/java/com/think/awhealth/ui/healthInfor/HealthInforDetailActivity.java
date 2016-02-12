@@ -19,7 +19,6 @@ import com.think.awhealth.database.HealthInforDbHelper;
 import com.think.awhealth.ui.base.ToolBarActivity;
 import com.think.awhealth.util.AppUtils;
 import com.think.awhealth.util.HtmlRegexpUtil;
-import com.think.awhealth.util.NetWorkUtils;
 import com.think.awhealth.util.TimeUtils;
 
 import butterknife.ButterKnife;
@@ -81,7 +80,7 @@ public class HealthInforDetailActivity extends ToolBarActivity {
         });
     }
 
-    private void loadData() {
+    protected void loadData() {
         sTianGouIO.getHealthInforDetail(inforId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -103,19 +102,19 @@ public class HealthInforDetailActivity extends ToolBarActivity {
         return true;
     }
 
-    private void showError(Throwable throwable) {
-        throwable.printStackTrace();
-        int messageResId;
-        if (NetWorkUtils.getNetWorkTypeName(this) == NetWorkUtils.NETWORK_TYPE_DISCONNECT) {
-            messageResId = R.string.network_state_disconnect;
-        } else {
-            messageResId = R.string.retry;
-        }
-        Snackbar.make(toolbar, messageResId,
-                Snackbar.LENGTH_LONG).setAction(R.string.retry, v -> {
-            loadData();
-        }).show();
-    }
+//    protected void showError(Throwable throwable) {
+//        throwable.printStackTrace();
+//        int messageResId;
+//        if (NetWorkUtils.getNetWorkTypeName(this) == NetWorkUtils.NETWORK_TYPE_DISCONNECT) {
+//            messageResId = R.string.network_state_disconnect;
+//        } else {
+//            messageResId = R.string.retry;
+//        }
+//        Snackbar.make(toolbar, messageResId,
+//                Snackbar.LENGTH_LONG).setAction(R.string.retry, v -> {
+//            loadData();
+//        }).show();
+//    }
 
 
 }

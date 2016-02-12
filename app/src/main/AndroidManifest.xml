@@ -50,7 +50,18 @@
             android:label="@string/title_Setting"
             >
         </activity>
-        <activity android:name=".ui.search.SearchActivity" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="疾病药品搜索"
+            >
+        </activity>
+        <activity android:name=".ui.search.SearchDrugResultActivity"
+            android:label="药品搜索结果"
+            >
+        </activity>
+        <activity android:name=".ui.search.SearchDiseaseResultActivity"
+            android:label="疾病搜索结果">
         </activity>
     </application>
 

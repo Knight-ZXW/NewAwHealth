@@ -1,9 +1,12 @@
 package com.think.awhealth.ui.base;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
+import com.think.awhealth.R;
 import com.think.awhealth.api.AwFactory;
 import com.think.awhealth.api.TinaGouApi;
+import com.think.awhealth.util.NetWorkUtils;
 
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
@@ -15,7 +18,7 @@ import rx.subscriptions.CompositeSubscription;
 public abstract class BaseActivity extends AppCompatActivity{
 
     public static final TinaGouApi sTianGouIO = AwFactory.getSingleTinaGouApi();
-    private CompositeSubscription mCompositeSubscription;
+    protected CompositeSubscription mCompositeSubscription;
 
     public CompositeSubscription getCompositeSubscription(){
         if (this.mCompositeSubscription == null){
@@ -31,6 +34,8 @@ public abstract class BaseActivity extends AppCompatActivity{
         mCompositeSubscription.add(s);
     }
 
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -38,4 +43,24 @@ public abstract class BaseActivity extends AppCompatActivity{
             this.mCompositeSubscription.unsubscribe();
         }
     }
+
+    protected void showError(Throwable throwable) {
+        throwable.printStackTrace();
+        int messageResId;
+        if (NetWorkUtils.getNetWorkTypeName(this) == NetWorkUtils.NETWORK_TYPE_DISCONNECT) {
+            messageResId = R.string.network_state_disconnect;
+        } else {
+            messageResId = R.string.network_bad;
+        }
+        Snackbar.make(getWindow().getDecorView(), messageResId,
+                Snackbar.LENGTH_LONG).setAction(R.string.retry, v -> {
+            loadData();
+        }).show();
+    }
+
+
+    /**
+     * 空实现
+     */
+    protected void loadData(){}
 }

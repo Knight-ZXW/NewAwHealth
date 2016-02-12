@@ -17,6 +17,7 @@
     <string name="network_state_disconnect">无网络连接</string>
     <string name="snap_load_fail">加载失败，请重试</string>
     <string name="retry">重试</string>
+    <string name="network_bad">信号不好吗？</string>
     <string name="title_activity_health_infor_detail">资讯详情</string>
 
     <!-- 收藏-->

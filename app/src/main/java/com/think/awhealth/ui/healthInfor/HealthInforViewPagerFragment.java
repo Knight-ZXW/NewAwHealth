@@ -29,7 +29,6 @@ public class HealthInforViewPagerFragment extends ViewPagerFragment {
 
     @Override
     protected PagerAdapter providePagerAdapter() {
-        Log.w("logger","调用了 providePagerAdapter");
         if (mNewsPagerAdapter == null){
         mNewsPagerAdapter = new NewsPagerAdapter(getActivity().getSupportFragmentManager());
         Log.w("looger","mNewsPagerAdapter is null");

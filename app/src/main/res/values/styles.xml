@@ -22,4 +22,14 @@
     <style name="CustomCollectTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/selector_collect</item>
     </style>
+    
+    <style name="view_detail_text_title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_deep_orange_600</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    <style name="view_detail_text_content">
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>
