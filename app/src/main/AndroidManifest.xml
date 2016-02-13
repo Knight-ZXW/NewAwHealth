@@ -96,7 +96,15 @@
             android:label="疾病搜索结果"
             >
         </activity>
-        <activity android:name=".ui.map.PeripheralMapActivity">
+        <activity android:name=".ui.map.PeripheralMapActivity"
+            android:label="@string/title_PeripheralMapActivity">
+        </activity>
+        <activity android:name=".ui.question.QuestionActivity"
+                  android:label="@string/title_QuestionActivity">
+        </activity>
+
+        <activity android:name=".ui.question.QuestionDetailActivity"
+                  android:label="问答详情">
         </activity>
 
         <service
@@ -110,8 +118,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ui.question.QuestionActivity">
-        </activity>
+
     </application>
 
 </manifest>

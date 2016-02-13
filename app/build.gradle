@@ -67,24 +67,25 @@ dependencies {
     //    compile files('libs/locSDK_6.13.jar')
     //    共享动画兼容库
     compile files('libs/lite-orm-1.7.0.jar')
+    // UI
     compile 'com.github.orhanobut:logger:1.12'
     compile 'com.kogitune:pre-lollipop-activity-transition:1.0.0'
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:cardview-v7:23.1.1'
+
     compile 'com.jakewharton:butterknife:5.1.1'
     compile 'org.simple:androideventbus:1.0.5'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'javax.annotation:javax.annotation-api:1.2'
-    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
-    compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    compile 'com.github.chrisbanes.photoview:library:1.2.3'
-    compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
-    compile 'tyrantgit:explosionfield:1.0.1'
-    compile 'com.github.paolorotolo:appintro:3.3.0'
+//    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+//    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+//    compile 'com.github.chrisbanes.photoview:library:1.2.3'
+//    compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
+//    compile 'com.github.paolorotolo:appintro:3.3.0'
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
     compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
@@ -92,6 +93,5 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.0'
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'com.facebook.fresco:imagepipeline-okhttp:0.8.1'
-// UI
-    compile 'com.github.wangjiegulu:RapidFloatingActionButton:1.0.3'
+//    compile 'com.github.wangjiegulu:RapidFloatingActionButton:1.0.3'
 }

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.think.awhealth.ui.base.BaseMainActivity;
 import com.think.awhealth.ui.healthInfor.HealthInforViewPagerFragment;
 import com.think.awhealth.ui.map.PeripheralMapActivity;
+import com.think.awhealth.ui.question.QuestionActivity;
 import com.think.awhealth.ui.search.SearchActivity;
 import com.think.awhealth.ui.search.SearchFragment;
 import com.think.awhealth.ui.setting.SettingsActivity;
@@ -57,12 +58,16 @@ public class MainActivity extends BaseMainActivity {
     @Override
     public boolean navigationItemSelected(MenuItem id) {
         int itemId = id.getItemId();
-        Boolean b = true;
-        if (mCurrentItemId == itemId && mCurrentItemId != R.id.nav_setting)
-            return b;
+        //如果选的是一样的不做操作
+        if (mCurrentItemId == itemId)
+            return false;
+
+        Boolean selectedItemWillNoChanged = true;
+
         switch (itemId) {
             case R.id.nav_healthInfor:
                 switchFragment(new HealthInforViewPagerFragment(), getString(R.string.title_HealthInfor), R.menu.menu_healthinfor);
+                selectedItemWillNoChanged = false;
                 break;
             case R.id.nav_setting:
                 toSetting();
@@ -70,20 +75,26 @@ public class MainActivity extends BaseMainActivity {
             case R.id.nav_query:
                 forwardToActivity(SearchActivity.class);
                 //因为这个是Activity，所以回退的时候要保持menu的一致
-                itemId = mCurrentItemId;
-                b = false;
-                mNavigationView.setCheckedItem(itemId);
                 break;
             case R.id.nav_map:
                 forwardToActivity(PeripheralMapActivity.class );
-                itemId = mCurrentItemId;
-                b = false;
-                mNavigationView.setCheckedItem(itemId);
+
+                break;
+            case R.id.nav_ask:
+                forwardToActivity(QuestionActivity.class);
                 break;
 
         }
+        //如果跳转的是actiivity,不对menu 的选项做出改变，因为回退时需要保持一致
+        if (selectedItemWillNoChanged == true){
+            itemId = mCurrentItemId;
+            mNavigationView.setCheckedItem(itemId);
+            return false;
+        }
+
+        //说明选项是个 fragment
         mCurrentItemId = itemId;
-        return b;
+        return true;
     }
 
     @Override

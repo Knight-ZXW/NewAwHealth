@@ -8,9 +8,9 @@ import com.think.awhealth.data.entity.HealthInfor;
  * Created by XiuWuZhuo on 2016/1/27.
  * Emial:nimdanoob@163.com
  */
-public class HealthInforDbHelper {
-    public static boolean containInDb(int id){
-        return App.sDb.query(new QueryBuilder<HealthInfor>(HealthInfor.class)
+public class DbHelper {
+    public static boolean containInDb(Class clazz,int id){
+        return App.sDb.query(new QueryBuilder<HealthInfor>(clazz)
         .where(" id = ?",new Integer[]{id})).size() !=0?true:false;
     }
 }

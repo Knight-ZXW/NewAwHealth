@@ -91,8 +91,7 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
             // 防止刷新消失太快，让子弹飞一会儿
             mSwipeRefreshLayout.postDelayed(
                     () -> mSwipeRefreshLayout.setRefreshing(false), 1000);
-        }
-        else {
+        } else {
             requestDataRefresh();
         }
     }

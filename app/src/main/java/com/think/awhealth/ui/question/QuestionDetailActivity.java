@@ -1,11 +1,10 @@
-package com.think.awhealth.ui.healthInfor;
+package com.think.awhealth.ui.question;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.think.awhealth.App;
 import com.think.awhealth.R;
 import com.think.awhealth.api.AppConstant;
-import com.think.awhealth.data.entity.HealthInfor;
 import com.think.awhealth.data.entity.QuestionDetail;
 import com.think.awhealth.database.DbHelper;
 import com.think.awhealth.ui.base.ToolBarActivity;
@@ -27,11 +25,15 @@ import butterknife.InjectView;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class HealthInforDetailActivity extends ToolBarActivity {
+/**
+ * Created by XiuWuZhuo on 2016/2/13.
+ * Emial:nimdanoob@163.com
+ */
 
-    public static final String View_HEADER_IMAGE ="detail:header:image";
-    public static final String View_HEADER_TITLE ="detail:header:title";
-
+/**
+ * 这个页面用的跟healthInforDetail 一样的布局，懒得重构了。将就下，服务器的api也有bug很多信息错位的
+ */
+public class QuestionDetailActivity extends ToolBarActivity {
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
     @InjectView(R.id.content_title)
@@ -45,11 +47,11 @@ public class HealthInforDetailActivity extends ToolBarActivity {
     @InjectView(R.id.fab)
     FloatingActionButton mFab;
     private int inforId;
-    private HealthInfor mHealthInfor;
+    private QuestionDetail mQuestionDetail;
 
     @Override
     protected int provideContentViewId() {
-        return R.layout.activity_health_infor_detail;
+        return R.layout.activity_question_detail;
     }
 
     @Override
@@ -61,8 +63,6 @@ public class HealthInforDetailActivity extends ToolBarActivity {
         Intent intent = getIntent();
         inforId = intent.getExtras().getInt("InforId");
 
-//        ViewCompat.setTransitionName(mImage,View_HEADER_IMAGE);
-        ViewCompat.setTransitionName(tv_contentTitle,View_HEADER_TITLE);
         loadData();
         initView();
     }
@@ -71,9 +71,8 @@ public class HealthInforDetailActivity extends ToolBarActivity {
 
         mFab.setOnClickListener(view->{
 
-            if (!DbHelper.containInDb(QuestionDetail.class,mHealthInfor.getId())){
-
-                App.sDb.save(mHealthInfor);
+            if (!DbHelper.containInDb(QuestionDetail.class,mQuestionDetail.getId())){
+                App.sDb.save(mQuestionDetail);
                 Snackbar.make(toolbar, R.string.collect_success, Snackbar.LENGTH_SHORT).show();
             } else {
                 Snackbar.make(toolbar, R.string.collect_repeat, Snackbar.LENGTH_SHORT).show();
@@ -82,25 +81,24 @@ public class HealthInforDetailActivity extends ToolBarActivity {
     }
 
     protected void loadData() {
-        sTianGouIO.getHealthInforDetail(inforId)
+        sTianGouIO.getQuestionDetailByQId(inforId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(healthInfor -> {
-                    this.mHealthInfor = healthInfor;
-                    showData(healthInfor);
+                    this.mQuestionDetail = healthInfor;
+                    showData(mQuestionDetail);
                 }, throwable -> showError(throwable));
     }
 
-    private void showData(HealthInfor healthInfor) {
-        tv_contentTitle.setText(healthInfor.getTitle());
-        tv_contentDate.setText(TimeUtils.getTime(healthInfor.getTime()));
-        tv_contentMain.setText(Html.fromHtml(HtmlRegexpUtil.fiterHtmlTag(healthInfor.getMessage(), "img"), AppUtils.getHtmlImageGetter(), null));
-        mImage.setImageURI(Uri.parse(AppConstant.IMAGE_URL_PREFIX + healthInfor.getImg()));
+    private void showData(QuestionDetail questionDetail) {
+        tv_contentTitle.setText(questionDetail.getTitle());
+        tv_contentDate.setText(TimeUtils.getTime(questionDetail.getTime()));
+        tv_contentMain.setText(Html.fromHtml(HtmlRegexpUtil.fiterHtmlTag(questionDetail.getMessage(), "img"), AppUtils.getHtmlImageGetter(), null));
+        mImage.setImageURI(Uri.parse(AppConstant.IMAGE_URL_PREFIX + questionDetail.getImg()));
     }
 
     @Override
     protected boolean canBack() {
         return true;
     }
-
 }

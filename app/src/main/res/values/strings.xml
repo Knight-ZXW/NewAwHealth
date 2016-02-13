@@ -28,6 +28,8 @@
     <string name="title_HealthInfor">健康资讯</string>
     <string name="title_Setting">设置</string>
     <string name="title_Search">查一查</string>
+    <string name="title_PeripheralMapActivity">附近医院</string>
+    <string name="title_QuestionActivity">问答</string>
     <!--Setting-->
     <string name="setting_key_clear_cache">clear_cache</string>
 </resources>
