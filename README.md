@@ -3,17 +3,17 @@
 
 ## 用到的开源库
 * **1.网络请求 retrofit2.0+okhttp**
-
 * **2.图片加载 fresco**
 * **3.rxJava**
 * **4.Json解析 gson**
 * **5.事件通信  AndroidEventBus**
-* **6.各种android support库**
+* **6.数据库  LiteOrm**
+* **7.各种android support库**
 ## Screen Recod
 
 ## 实现的功能
 * **健康资**
-* **资讯推动 *
+* **资讯推动**
 * **查询药品疾病信息**
 * **百度地图搜索周边医院及显示医院详情**
 * **一些设置选项**
