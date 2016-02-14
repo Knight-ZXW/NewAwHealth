@@ -19,8 +19,8 @@ public class AlarmManagerUtils {
         Calendar today = Calendar.getInstance();
         Calendar now = Calendar.getInstance();
 
-        today.set(Calendar.HOUR_OF_DAY,19);
-        today.set(Calendar.MINUTE,45);
+        today.set(Calendar.HOUR_OF_DAY,12);
+        today.set(Calendar.MINUTE,0);
         today.set(Calendar.SECOND, 0);
 
         if (now.after(today)){

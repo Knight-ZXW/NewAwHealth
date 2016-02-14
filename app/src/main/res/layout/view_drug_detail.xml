@@ -43,7 +43,7 @@
             android:padding="5dp"
             >
             <TextView
-                android:text="描述:"
+                android:text="描述："
                 style="@style/view_detail_text_title"
                 android:textColor="@color/md_deep_orange_400"
                 android:layout_width="wrap_content"
@@ -70,14 +70,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceSearchResultSubtitle"
-                android:text="类型:"
+                android:text="类型："
                 />
             <TextView
                 android:id="@+id/id_item_style"
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/md_blue_grey_50"
                 android:text="不明"
                 />
         </LinearLayout>

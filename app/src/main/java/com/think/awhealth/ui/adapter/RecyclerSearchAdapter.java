@@ -43,7 +43,6 @@ public class RecyclerSearchAdapter extends RecyclerView.Adapter<RecyclerSearchAd
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Drug drug = mDatas.get(position);
-        Log.w("logger","bindViewHolder");
         holder.drugTitle.setText(drug.getName());
 
         holder.drugImage.setImageURI(Uri.parse(drug.getImg()));

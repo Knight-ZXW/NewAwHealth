@@ -3,12 +3,15 @@ package com.think.awhealth.ui.base;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.think.awhealth.R;
+import com.think.awhealth.ui.setting.Settings;
 
 import butterknife.ButterKnife;
 
@@ -72,8 +75,22 @@ public abstract class BaseMainActivity extends ToolBarActivity implements Naviga
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (canExit()) {
+                super.onBackPressed();
+            }
         }
+    }
+    private long lastPressTime = 0;
+    private boolean canExit() {
+        Log.w("logger","settings isexit =="+Settings.isExitConfirm);
+        if (Settings.isExitConfirm) {
+            if (System.currentTimeMillis() - lastPressTime > 2000) {
+                lastPressTime = System.currentTimeMillis();
+                Snackbar.make(getCurrentFocus(), R.string.text_exit_confirm, Snackbar.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        return true;
     }
 
     public abstract boolean navigationItemSelected(MenuItem id);

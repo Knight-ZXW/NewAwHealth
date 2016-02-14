@@ -20,7 +20,7 @@ public class AlarmReceiver extends BroadcastReceiver{
         HeadsUpUtils.show(context, MainActivity.class,
                 context.getString(R.string.headsup_titile),
                 context.getString(R.string.headsup_content),
-                R.mipmap.ic_meizhi_150602,
+                R.mipmap.ic_notify,
                 R.mipmap.ic_female,NOTIFY_CODE);
     }
 }

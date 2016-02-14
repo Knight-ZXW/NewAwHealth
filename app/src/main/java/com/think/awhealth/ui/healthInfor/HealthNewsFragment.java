@@ -3,8 +3,6 @@ package com.think.awhealth.ui.healthInfor;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -78,13 +76,13 @@ public class HealthNewsFragment extends SwipeRefreshBaseFragment {
             @Override
             public void onCradItemClick(int id,TextView view) {
                 int InforId = mDatas.get(id).getId();
-                ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        getActivity(), view, HealthInforDetailActivity.View_HEADER_TITLE);
+//                ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                        getActivity(), view, HealthInforDetailActivity.View_HEADER_TITLE);
 
                 Intent intent = new Intent(getActivity(),HealthInforDetailActivity.class);
                 intent.putExtra("InforId", InforId);
-//                startActivity(intent);
-                ActivityCompat.startActivity(getActivity(), intent, activityOptions.toBundle());
+                startActivity(intent);
+//                ActivityCompat.startActivity(getActivity(), intent, activityOptions.toBundle());
             }
         });
         return adapter;
@@ -103,8 +101,10 @@ public class HealthNewsFragment extends SwipeRefreshBaseFragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(healthInfors -> {
-                    mDatas.addAll(healthInfors);
-                    mAdapter.notifyDataSetChanged();
+                    if (healthInfors!=null) {
+                        mDatas.addAll(healthInfors);
+                        mAdapter.notifyDataSetChanged();
+                    }
                     setRefreshing(false);
                 }, throwable -> {
                     HealthNewsFragment.this.loadError(throwable);

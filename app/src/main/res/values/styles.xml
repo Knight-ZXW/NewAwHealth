@@ -5,8 +5,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:windowIsTranslucent">true</item>
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -31,5 +31,10 @@
     </style>
     <style name="view_detail_text_content">
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="MaterialTheme.ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+        <!-- The textColor property is backward compatible with the Support Library -->
     </style>
 </resources>

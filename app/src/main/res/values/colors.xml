@@ -4,7 +4,16 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="translucent_background">#60000000</color>
+
     <color name="refresh_progress_1">#e91e63</color>
     <color name="refresh_progress_2">#00b0ff</color>
     <color name="refresh_progress_3">@color/colorPrimary</color>
+
+    <!--about-->
+    <!-- about-->
+    <color name="about_header_background">#1C1E22</color>
+    <color name="about_background">#f1f1f1</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

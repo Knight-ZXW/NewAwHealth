@@ -3,13 +3,14 @@ package com.think.awhealth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 
+import com.think.awhealth.ui.about.AboutActivity;
 import com.think.awhealth.ui.base.BaseMainActivity;
 import com.think.awhealth.ui.healthInfor.HealthInforViewPagerFragment;
 import com.think.awhealth.ui.map.PeripheralMapActivity;
@@ -18,12 +19,10 @@ import com.think.awhealth.ui.search.SearchActivity;
 import com.think.awhealth.ui.search.SearchFragment;
 import com.think.awhealth.ui.setting.SettingsActivity;
 import com.think.awhealth.util.AlarmManagerUtils;
-
-import butterknife.InjectView;
+import com.think.awhealth.util.ShareUtils;
 
 public class MainActivity extends BaseMainActivity {
-    @InjectView(R.id.fab)
-    FloatingActionButton mFab;
+
     private FragmentManager mFragmentManager;
     private int mCurrentItemId;
     private Menu menu;
@@ -38,6 +37,8 @@ public class MainActivity extends BaseMainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AlarmManagerUtils.register(this);
+
+        ViewGroup decor = (ViewGroup) getWindow().getDecorView();
         initVariables();
         initData();
         switchFragment(new HealthInforViewPagerFragment(), getString(R.string.title_HealthInfor), R.menu.menu_healthinfor);
@@ -82,6 +83,13 @@ public class MainActivity extends BaseMainActivity {
                 break;
             case R.id.nav_ask:
                 forwardToActivity(QuestionActivity.class);
+                break;
+
+            case R.id.nav_share:
+                ShareUtils.share(this,R.string.share_text);
+                break;
+            case R.id.nav_about:
+                forwardToActivity(AboutActivity.class);
                 break;
 
         }
@@ -149,4 +157,11 @@ public class MainActivity extends BaseMainActivity {
         intent.setClass(this, classActivity);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+
 }

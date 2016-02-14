@@ -32,4 +32,29 @@
     <string name="title_QuestionActivity">问答</string>
     <!--Setting-->
     <string name="setting_key_clear_cache">clear_cache</string>
+    <string name="setting_key_change_language">change_language</string>
+    <string name="setting_key_exit_confirm">exit_confirm</string>
+    <string name="setting_key_notify_message">notify_message</string>
+    <string name="setting_key_slide_back">slide_back</string>
+    <string name="text_language">切换语言</string>
+    <string name="text_slide_back">滑动返回(右滑)</string>
+    <string name="text_exit_confirm">再按一次退出</string>
+    <string name="text_notify_message">每日提醒</string>
+    <string name="text_notify_message_summary">将在每日12点定时推送消息</string>
+
+    <string name="text_exit_confirm_summary">按两次返回键退出应用</string>
+    <string name="notify_exit_confirm">再按一次退出</string>
+
+    <!--Share-->
+    <string name="action_share">分享</string>
+    <string name="share_text">这是一款免费的移动健康资讯运用的，有有趣的健康问答、实用的健康资讯、还能够查询药品和疾病及查询附近医院并且有地图哦\n项目源代码已经开源：https://github.com/nimdanoob/AWHealth3，欢迎Start、Fork</string>
+
+    <!--About-->
+    <!-- AboutActivity-->
+    <string name="share">分享给朋友</string>
+    <string name="app_introduce">一款基于Android平台的健康传播应用</string>
+    <string name="group_introduce">介绍与帮助</string>
+    <string name="app_detail_introduce">AWhealth，这是一款推送健康资讯的App,模块分为健康资讯、查一查、附近医院、精品问答4个模块，数据来源于天狗云API
+        软件部分采用了MVP的设计模式，使用Retrofit2作为网络请求的框架，图片加载使用了Fresco。\n 主要的功能菜单通过向右侧滑打开.\n 源代码在https://github.com/nimdanoob/AWHealth3
+    </string>
 </resources>

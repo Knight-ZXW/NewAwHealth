@@ -3,12 +3,21 @@
     <PreferenceCategory
         android:title="偏好">
         <Preference
-            android:key="language"
+            android:key="@string/setting_key_change_language"
             android:title="语言"
             />
-        <Preference
-            android:key="search"
-            android:title="搜索"/>
+        <CheckBoxPreference
+            android:key="@string/setting_key_notify_message"
+            android:title="@string/text_notify_message"
+            android:summary="@string/text_notify_message_summary"
+            android:checked="true"
+            />
+        <CheckBoxPreference
+            android:key="@string/setting_key_exit_confirm"
+            android:title="@string/text_exit_confirm"
+            android:summary="@string/text_exit_confirm_summary"
+            android:checked="true"
+            />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="网络">

@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.widget.TextView;
@@ -29,8 +28,8 @@ import rx.schedulers.Schedulers;
 
 public class HealthInforDetailActivity extends ToolBarActivity {
 
-    public static final String View_HEADER_IMAGE ="detail:header:image";
-    public static final String View_HEADER_TITLE ="detail:header:title";
+//    public static final String View_HEADER_IMAGE ="detail:header:image";
+//    public static final String View_HEADER_TITLE ="detail:header:title";
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
@@ -61,8 +60,9 @@ public class HealthInforDetailActivity extends ToolBarActivity {
         Intent intent = getIntent();
         inforId = intent.getExtras().getInt("InforId");
 
+        //在透明主题中有bug 待解决
 //        ViewCompat.setTransitionName(mImage,View_HEADER_IMAGE);
-        ViewCompat.setTransitionName(tv_contentTitle,View_HEADER_TITLE);
+//        ViewCompat.setTransitionName(tv_contentTitle,View_HEADER_TITLE);
         loadData();
         initView();
     }

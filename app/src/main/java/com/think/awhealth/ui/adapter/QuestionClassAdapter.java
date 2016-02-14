@@ -46,7 +46,6 @@ public class QuestionClassAdapter extends RecyclerView.Adapter<QuestionClassAdap
             if (position>0){
                 classId = position+2;
             }
-            Log.w("logger","发送事件"+classId);
             EventBus.getDefault().post(classId, QuestionActivity.EVENT_TAG_FORWARD_FRAGMENT);
 
         });
