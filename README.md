@@ -21,6 +21,7 @@
 ![](http://7xq84c.com1.z0.glb.clouddn.com/gifn2.gif)
 ![](http://7xq84c.com1.z0.glb.clouddn.com/3.gif)
 ![](http://7xq84c.com1.z0.glb.clouddn.com/gifn4.gif)
+
 >更多内容可以下载App看一下
 
 ## 暂未实现或完善的功能
