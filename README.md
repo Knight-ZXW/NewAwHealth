@@ -6,7 +6,7 @@ AW健康资讯运用第一版
 
 ## Screen Recod
 
-![](http://7xq84c.com1.z0.glb.clouddn.com/1.gif)
+![](http://7xq84c.com1.z0.glb.clouddn.com/3.gif)
 
 ## Download
 
