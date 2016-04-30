@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.think.awhealth.R;
 import com.think.awhealth.api.AwFactory;
-import com.think.awhealth.data.entity.Drug;
+import com.think.awhealth.bean.entity.Drug;
 import com.think.awhealth.ui.adapter.RecyclerSearchAdapter;
 import com.think.awhealth.ui.base.BaseListActivity;
 

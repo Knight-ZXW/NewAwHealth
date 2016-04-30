@@ -5,11 +5,7 @@ import android.content.Context;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipeline;
 import com.litesuits.orm.LiteOrm;
-import com.orhanobut.logger.Logger;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 
 /**
  * Created by XiuWuZhuo on 2016/1/23.

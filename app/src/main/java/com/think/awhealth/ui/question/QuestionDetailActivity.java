@@ -13,7 +13,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.think.awhealth.App;
 import com.think.awhealth.R;
 import com.think.awhealth.api.AppConstant;
-import com.think.awhealth.data.entity.QuestionDetail;
+import com.think.awhealth.bean.entity.QuestionDetail;
 import com.think.awhealth.database.DbHelper;
 import com.think.awhealth.ui.base.ToolBarActivity;
 import com.think.awhealth.util.AppUtils;

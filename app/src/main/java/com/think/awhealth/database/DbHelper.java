@@ -2,7 +2,7 @@ package com.think.awhealth.database;
 
 import com.litesuits.orm.db.assit.QueryBuilder;
 import com.think.awhealth.App;
-import com.think.awhealth.data.entity.HealthInfor;
+import com.think.awhealth.bean.entity.HealthInfor;
 
 /**
  * Created by XiuWuZhuo on 2016/1/27.

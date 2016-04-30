@@ -43,7 +43,7 @@ import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.baidu.mapapi.utils.DistanceUtil;
 import com.think.awhealth.R;
-import com.think.awhealth.data.entity.Hospital;
+import com.think.awhealth.bean.entity.Hospital;
 
 import java.text.DecimalFormat;
 import java.util.List;

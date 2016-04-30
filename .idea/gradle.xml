@@ -10,16 +10,28 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/headsupcompat" />
+            <option value="$PROJECT_DIR$/libraries/rxjava" />
+            <option value="$PROJECT_DIR$/libraries/superadapter" />
+            <option value="$PROJECT_DIR$/presenter" />
+            <option value="$PROJECT_DIR$/view" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/headsupcompat" />
+            <option value="$PROJECT_DIR$/libraries/rxjava" />
+            <option value="$PROJECT_DIR$/libraries/superadapter" />
+            <option value="$PROJECT_DIR$/presenter" />
+            <option value="$PROJECT_DIR$/view" />
           </set>
         </option>
       </GradleProjectSettings>

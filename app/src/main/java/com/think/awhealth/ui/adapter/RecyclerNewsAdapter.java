@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.think.awhealth.R;
-import com.think.awhealth.data.entity.HealthInfor;
+import com.think.awhealth.bean.entity.HealthInfor;
 
 import java.util.List;
 

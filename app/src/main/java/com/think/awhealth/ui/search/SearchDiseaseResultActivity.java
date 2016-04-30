@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.think.awhealth.R;
-import com.think.awhealth.data.entity.Disease;
+import com.think.awhealth.bean.entity.Disease;
 import com.think.awhealth.ui.base.BaseToolBarAndNetWorkActivity;
 import com.think.awhealth.widget.TitleWithContentView;
 

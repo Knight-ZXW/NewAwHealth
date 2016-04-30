@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.think.awhealth.R;
-import com.think.awhealth.data.entity.Question;
+import com.think.awhealth.bean.entity.Question;
 import com.think.awhealth.ui.adapter.RecyclerQuestionAdapter;
 import com.think.awhealth.ui.base.SwipeRefreshBaseFragment;
 

@@ -1,11 +1,11 @@
 package com.think.awhealth.api;
 
-import com.think.awhealth.data.DrugSearchData;
-import com.think.awhealth.data.HealthInforData;
-import com.think.awhealth.data.QuestoinsData;
-import com.think.awhealth.data.entity.Disease;
-import com.think.awhealth.data.entity.HealthInfor;
-import com.think.awhealth.data.entity.QuestionDetail;
+import com.think.awhealth.bean.DrugSearchData;
+import com.think.awhealth.bean.HealthInforData;
+import com.think.awhealth.bean.QuestoinsData;
+import com.think.awhealth.bean.entity.Disease;
+import com.think.awhealth.bean.entity.HealthInfor;
+import com.think.awhealth.bean.entity.QuestionDetail;
 
 import retrofit.http.GET;
 import retrofit.http.Query;
