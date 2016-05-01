@@ -1,8 +1,6 @@
 include ':app',
         ':data',
         ':domain',
-        ':presenter',
-        ':view',
         ':libraries:headsupcompat',
         ':libraries:superadapter',
         ':libraries:rxjava'

@@ -2,7 +2,6 @@ package com.think.awhealth.bean;
 
 import com.google.gson.annotations.SerializedName;
 import com.think.awhealth.bean.entity.Drug;
-import com.think.awhealth.model.BaseModel;
 
 import java.util.List;
 

@@ -57,7 +57,7 @@ public class QuestionClazzListFragment extends SwipeRefreshBaseFragment {
     }
 
     @Override
-    protected void loadData() {
+    protected void scrollToBottom() {
         mLoadDataSubscription = sTianGouApi.getQuestionsById(mClassId, currentRows)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -73,7 +73,7 @@ public class QuestionClazzListFragment extends SwipeRefreshBaseFragment {
                     currentRows += 10;
                     setRefreshing(false);
                 }, throwable -> {
-                    loadError(throwable);
+                    catchError(throwable);
                 });
 
     }
@@ -90,7 +90,7 @@ public class QuestionClazzListFragment extends SwipeRefreshBaseFragment {
 
         mClassId = getArguments().getInt("id");
         initView();
-        loadData();
+        scrollToBottom();
     }
 
     private void initView() {

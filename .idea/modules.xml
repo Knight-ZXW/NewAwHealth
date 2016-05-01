@@ -8,10 +8,8 @@
       <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/headsupcompat/headsupcompat.iml" filepath="$PROJECT_DIR$/libraries/headsupcompat/headsupcompat.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/libraries.iml" filepath="$PROJECT_DIR$/libraries/libraries.iml" />
-      <module fileurl="file://$PROJECT_DIR$/presenter/presenter.iml" filepath="$PROJECT_DIR$/presenter/presenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/rxjava/rxjava.iml" filepath="$PROJECT_DIR$/libraries/rxjava/rxjava.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/superadapter/superadapter.iml" filepath="$PROJECT_DIR$/libraries/superadapter/superadapter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/view/view.iml" filepath="$PROJECT_DIR$/view/view.iml" />
     </modules>
   </component>
 </project>

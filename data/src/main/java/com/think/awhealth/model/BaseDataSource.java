@@ -9,7 +9,7 @@ import javax.xml.transform.Transformer;
  * Created by Zousfu on 2016/4/30.
  * Email:nimdanoob@163.com
  */
-public interface BaseModel {
+public interface BaseDataSource {
 //    public static int SUCCESS = 0x1;
 //    public static int NETWORK_FAILED =0x2;
 //    void setTaskResultTag(int tag);

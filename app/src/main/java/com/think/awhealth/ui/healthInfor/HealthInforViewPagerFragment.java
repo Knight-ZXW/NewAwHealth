@@ -1,6 +1,7 @@
 package com.think.awhealth.ui.healthInfor;
 
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 
@@ -23,7 +24,7 @@ public class HealthInforViewPagerFragment extends ViewPagerFragment {
     @Override
     protected PagerAdapter providePagerAdapter() {
         if (mNewsPagerAdapter == null){
-        mNewsPagerAdapter = new NewsPagerAdapter(getActivity().getSupportFragmentManager());
+        mNewsPagerAdapter = new NewsPagerAdapter(getActivity().getSupportFragmentManager(), getContext());
         }
         return mNewsPagerAdapter;
     }

@@ -5,5 +5,4 @@ package com.think.awhealth.retrofit;
  * Email:nimdanoob@163.com
  */
 public interface IAwApiManger {
-    public  AwRetrofit getSingleTinaGouApi();
 }

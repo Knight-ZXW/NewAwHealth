@@ -37,7 +37,7 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(getOnBottomListener(mLayoutManager));
         trySetupRefresh(view);
-        loadData();
+        scrollToBottom();
     }
 
     @Override
@@ -59,7 +59,7 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
     private void  requestDataRefresh(){
         mIsRequestDataRefresh = true;
         mSwipeRefreshLayout.setRefreshing(true);
-        loadData();
+        scrollToBottom();
     };
 
     RecyclerView.OnScrollListener getOnBottomListener(RecyclerView.LayoutManager layoutManager) {
@@ -70,7 +70,7 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
                     super.onScrollStateChanged(recyclerView, newState);
                     if (newState == RecyclerView.SCROLL_STATE_IDLE && !mSwipeRefreshLayout.isRefreshing()
                             && ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition() + 1 == mAdapter.getItemCount()) {
-                        loadData();
+                        scrollToBottom();
                         //todo load data
                     }
 
@@ -96,9 +96,9 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
         }
     }
 
-    abstract protected void loadData();
+    abstract protected void scrollToBottom();
 
-     protected void loadError(Throwable throwable){
+     protected void catchError(Throwable throwable){
          setRefreshing(false);
          throwable.printStackTrace();
          int messageResId;
@@ -109,7 +109,7 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
          }
          Snackbar.make(mRecyclerView, messageResId,
                  Snackbar.LENGTH_LONG).setAction(R.string.retry, v -> {
-             loadData();
+             scrollToBottom();
          }).show();
     }
 

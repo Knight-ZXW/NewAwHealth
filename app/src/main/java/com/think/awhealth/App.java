@@ -6,6 +6,7 @@ import android.content.Context;
 import com.baidu.mapapi.SDKInitializer;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.litesuits.orm.LiteOrm;
+import com.think.awhealth.retrofit.AwApiManager;
 
 /**
  * Created by XiuWuZhuo on 2016/1/23.
@@ -25,7 +26,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         AppContext = getApplicationContext();
-
+        AwApiManager.init();
         Fresco.initialize(this);
         SDKInitializer.initialize(getApplicationContext());
 
