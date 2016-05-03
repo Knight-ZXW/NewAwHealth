@@ -12,15 +12,11 @@ import java.util.List;
 public class DrugSearchData extends BaseData{
 
 
-    private boolean status;
     private int total;
 
     @SerializedName("tngou")
     private List<Drug> mDrugs;
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 
     public void setTotal(int total) {
         this.total = total;
@@ -30,9 +26,6 @@ public class DrugSearchData extends BaseData{
         this.mDrugs = tngou;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
 
     public int getTotal() {
         return total;

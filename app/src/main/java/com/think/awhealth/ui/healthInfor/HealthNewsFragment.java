@@ -46,7 +46,12 @@ public class HealthNewsFragment extends SwipeRefreshBaseFragment implements Heal
 
     @Override
     public void showLoading(boolean pullToRefresh) {
-        Log.w("zxw","正在加载中");
+        setRefreshing(pullToRefresh);
+        if (pullToRefresh) {
+            Log.w("zxw", "正在加载中");
+        } else {
+            Log.w("zxw", "加载完成");
+        }
     }
 
 

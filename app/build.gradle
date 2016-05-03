@@ -58,6 +58,7 @@ repositories {
         dirs 'libs' //this way we can find the .aar file in libs folder
     }
     maven { url "https://jitpack.io" }
+    maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
 }
 
 

@@ -1,6 +1,4 @@
-package com.think.awhealth.model.impl.remote;
-
-import javax.xml.transform.Transformer;
+package com.think.awhealth.model.dataSource.remote;
 
 /**
  * Created by Zousfu on 2016/4/30.

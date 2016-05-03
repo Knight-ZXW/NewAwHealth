@@ -1,4 +1,4 @@
-package com.think.awhealth.model.impl;
+package com.think.awhealth.model.dataSource;
 
 import com.think.awhealth.model.BaseDataSource;
 

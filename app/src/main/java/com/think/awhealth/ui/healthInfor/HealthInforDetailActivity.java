@@ -10,6 +10,7 @@ import android.text.Html;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.litesuits.orm.db.assit.WhereBuilder;
 import com.think.awhealth.App;
 import com.think.awhealth.R;
 import com.think.awhealth.api.AppConstant;
@@ -71,11 +72,15 @@ public class HealthInforDetailActivity extends ToolBarActivity {
 
         mFab.setOnClickListener(view->{
 
-            if (!DbHelper.containInDb(QuestionDetail.class,mHealthInfor.getId())){
-
-                App.sDb.save(mHealthInfor);
-                Snackbar.make(toolbar, R.string.collect_success, Snackbar.LENGTH_SHORT).show();
+            if (!DbHelper.HealthInforDb.isCollected(mHealthInfor.getId())){
+                boolean success = DbHelper.HealthInforDb.collectHelathInfor(mHealthInfor);
+                if (success) {
+                    Snackbar.make(toolbar, R.string.collect_success, Snackbar.LENGTH_SHORT).show();
+                } else {
+                    Snackbar.make(toolbar, "收藏失败", Snackbar.LENGTH_SHORT).show();
+                }
             } else {
+                DbHelper.HealthInforDb.unCollectedHealthInfor(mHealthInfor.getId());
                 Snackbar.make(toolbar, R.string.collect_repeat, Snackbar.LENGTH_SHORT).show();
             }
         });

@@ -26,14 +26,14 @@ import com.litesuits.orm.db.annotation.Unique;
      * title : 完美爱爱的黄金标准有哪些？
      * url : http://www.tngou.net/ask/show/10
      */
-
+    public static final String COL_ID ="questionId";
     private int askclass;
     private int count;
     private String description;
     private int fcount;
     @NotNull
     @Unique
-    @Column("id")
+    @Column(COL_ID)
     private int id;
     private String img;
     private String keywords;

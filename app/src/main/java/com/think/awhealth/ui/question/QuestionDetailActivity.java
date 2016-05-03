@@ -71,7 +71,7 @@ public class QuestionDetailActivity extends ToolBarActivity {
 
         mFab.setOnClickListener(view->{
 
-            if (!DbHelper.containInDb(QuestionDetail.class,mQuestionDetail.getId())){
+            if (!DbHelper.QuestionDetailDb.containInDb(mQuestionDetail.getId())){
                 App.sDb.save(mQuestionDetail);
                 Snackbar.make(toolbar, R.string.collect_success, Snackbar.LENGTH_SHORT).show();
             } else {

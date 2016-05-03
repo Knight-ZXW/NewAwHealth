@@ -41,7 +41,7 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
 //        mSlideBack.setChecked(Settings.isSlideBack);
 
         mExitConfirm = (CheckBoxPreference) findPreference(getString(R.string.setting_key_exit_confirm));
-        mExitConfirm.setOnPreferenceClickListener(this);
+        mExitConfirm.setOnPreferenceChangeListener(this);
         mExitConfirm.setChecked(Settings.isExitConfirm);
 
         mNotifyMessage = (CheckBoxPreference)findPreference(getString(R.string.setting_key_notify_message));
@@ -60,6 +60,7 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
         Log.w("logger","preference change and value is "+newValue.toString());
         if (preference == mExitConfirm){
             Settings.isExitConfirm = Boolean.valueOf(newValue.toString());
+            Log.w("logger","settings isExitConfirm =="+Settings.isExitConfirm);
             mSettings.putBoolean(Settings.EXIT_CONFIRM,Settings.isExitConfirm);
             return true;
 //        } else if (preference == mSlideBack){

@@ -3,8 +3,7 @@ package com.think.awhealth.ui.healthInfor;
 import android.util.Log;
 
 import com.think.awhealth.bean.entity.HealthInfor;
-import com.think.awhealth.model.IHealthInfoDataSource;
-import com.think.awhealth.model.healthInfo.HealthInforRepository;
+import com.think.awhealth.model.repository.HealthInforRepository;
 import com.think.awhealth.result.Result;
 
 import java.util.List;
@@ -49,7 +48,6 @@ public class HealthInforPresenter implements HealthInforContract.Presenter {
                     @Override
                     public void onCompleted() {
                         Log.w("zxw","完成了");
-
                         mHealthNewsView.showLoading(false);
                     }
 

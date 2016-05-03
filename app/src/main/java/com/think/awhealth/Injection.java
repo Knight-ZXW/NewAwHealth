@@ -8,9 +8,9 @@ package com.think.awhealth;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.think.awhealth.model.healthInfo.HealthInforRepository;
-import com.think.awhealth.model.impl.local.HealthInforLocalDataSource;
-import com.think.awhealth.model.impl.remote.HealthInforRemoteDataSource;
+import com.think.awhealth.model.repository.HealthInforRepository;
+import com.think.awhealth.model.dataSource.local.HealthInforLocalDataSource;
+import com.think.awhealth.model.dataSource.remote.HealthInforRemoteDataSource;
 
 import static com.think.awhealth.util.Preconditions.checkNotNull;
 /**

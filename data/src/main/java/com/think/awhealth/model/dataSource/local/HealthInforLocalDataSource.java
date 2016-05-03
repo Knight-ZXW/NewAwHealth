@@ -1,8 +1,7 @@
-package com.think.awhealth.model.impl.local;
+package com.think.awhealth.model.dataSource.local;
 
 import com.think.awhealth.bean.entity.HealthInfor;
 import com.think.awhealth.model.IHealthInfoDataSource;
-import com.think.awhealth.model.impl.remote.HealthInforRemoteDataSource;
 import com.think.awhealth.result.Result;
 
 import java.util.List;
@@ -34,5 +33,10 @@ public class HealthInforLocalDataSource implements IHealthInfoDataSource {
     @Override
     public Observable<Result<HealthInfor>> getHealthInforDetail(int healthInforId) {
         return Observable.empty();
+    }
+
+    @Override
+    public Observable<Result> collectHealthInfor(int HealthInforId) {
+        return null;
     }
 }

@@ -37,7 +37,6 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(getOnBottomListener(mLayoutManager));
         trySetupRefresh(view);
-        scrollToBottom();
     }
 
     @Override
@@ -77,7 +76,7 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
                 }
             };
         } else {
-            return null;
+            throw new IllegalStateException("暂时只写了LinerLayout的情况，其他Manager跟这个逻辑有区别");
         }
     }
 
@@ -92,7 +91,7 @@ public abstract class SwipeRefreshBaseFragment extends BaseFragment{
             mSwipeRefreshLayout.postDelayed(
                     () -> mSwipeRefreshLayout.setRefreshing(false), 1000);
         } else {
-            requestDataRefresh();
+//            requestDataRefresh();
         }
     }
 

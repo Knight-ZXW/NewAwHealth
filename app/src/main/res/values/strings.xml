@@ -22,7 +22,8 @@
 
     <!-- 收藏-->
     <string name="collect_success">收藏成功</string>
-    <string name="collect_repeat">已经收藏过了</string>
+    <string name="collect_faield">收藏失败</string>
+    <string name="collect_repeat">取消收藏</string>
 
     <!-- 一些标题-->
     <string name="title_HealthInfor">健康资讯</string>
@@ -57,4 +58,20 @@
     <string name="app_detail_introduce">AWhealth，这是一款推送健康资讯的App,模块分为健康资讯、查一查、附近医院、精品问答4个模块，数据来源于天狗云API
         软件部分采用了MVP的设计模式，使用Retrofit2作为网络请求的框架，图片加载使用了Fresco。\n 主要的功能菜单通过向右侧滑打开.\n 源代码在https://github.com/nimdanoob/AWHealth3
     </string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">邮箱</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登入</string>
+    <string name="action_register">注册</string>
+    <string name="action_sign_in_short">登入</string>
+    <string name="error_invalid_email">错误的邮箱地址</string>
+    <string name="error_invalid_password">密码太短了</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">这个字段不能为空</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_register">注册</string>
 </resources>

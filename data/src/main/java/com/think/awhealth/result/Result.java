@@ -15,18 +15,24 @@ public class Result<T> {
     T resultData;
     REASON reason;
 
+    public Result() {
+    }
+
     public Result(T resultData) {
         this.resultData = resultData;
         setSuccess(true);
     }
-    public T getData(){
+
+    public T getData() {
         return resultData;
     }
 
     public Result setSuccess(boolean success) {
         this.success = success;
         return this;
-    };
+    }
+
+    ;
 
     public Result setReason(REASON reason) {
         this.reason = reason;

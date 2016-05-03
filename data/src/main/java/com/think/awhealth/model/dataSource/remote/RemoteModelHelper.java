@@ -1,10 +1,8 @@
-package com.think.awhealth.model.impl.remote;
+package com.think.awhealth.model.dataSource.remote;
 
 import java.util.List;
 
 import javax.xml.transform.Transformer;
-
-import rx.Observable;
 
 /**
  * Created by Zousfu on 2016/4/30.

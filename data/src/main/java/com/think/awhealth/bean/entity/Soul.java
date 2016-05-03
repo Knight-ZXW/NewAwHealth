@@ -26,8 +26,6 @@ import com.litesuits.orm.db.enums.AssignType;
 import java.io.Serializable;
 
 /**
- * Created by drakeet(http://drakeet.me)
- * Date: 8/18/15 13:55
  */
 public class Soul implements Serializable {
 

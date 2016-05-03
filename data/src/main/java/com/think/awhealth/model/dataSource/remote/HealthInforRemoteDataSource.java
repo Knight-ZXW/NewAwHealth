@@ -1,4 +1,4 @@
-package com.think.awhealth.model.impl.remote;
+package com.think.awhealth.model.dataSource.remote;
 
 import com.think.awhealth.bean.HealthInforData;
 import com.think.awhealth.bean.entity.HealthInfor;
@@ -45,6 +45,11 @@ public class HealthInforRemoteDataSource implements IHealthInfoDataSource {
     @Override
     public Observable<Result<HealthInfor>> getHealthInforDetail(int healthInforId) {
         sTianGouApi.getHealthInforDetail(healthInforId);
+        return null;
+    }
+
+    @Override
+    public Observable<Result> collectHealthInfor(int HealthInforId) {
         return null;
     }
 

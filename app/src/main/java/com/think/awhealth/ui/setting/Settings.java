@@ -21,16 +21,17 @@ public class Settings {
 
     public static boolean isExitConfirm = true;
     public static boolean isSlideBack = false;
-    public static boolean isNotifyMessage =true;
+    public static boolean isNotifyMessage = true;
 
     private static Settings sInstance;
 
-    private SharedPreferences mPrefs;
+    private static SharedPreferences mPrefs;
 
     public static Settings getInstance() {
         if (sInstance == null) {
-
             sInstance = new Settings(App.AppContext);
+            isExitConfirm = mPrefs.getBoolean(Settings.EXIT_CONFIRM, false);
+            isNotifyMessage = mPrefs.getBoolean(Settings.NOTIFY_MESSAGE, true);
         }
         return sInstance;
     }
@@ -44,7 +45,7 @@ public class Settings {
         return this;
     }
 
-    public boolean getBoolean(String key, boolean def) {
+    public static boolean getBoolean(String key, boolean def) {
         return mPrefs.getBoolean(key, def);
     }
 

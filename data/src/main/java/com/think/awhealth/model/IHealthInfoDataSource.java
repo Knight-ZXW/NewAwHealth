@@ -15,4 +15,5 @@ import rx.Observable;
 public interface IHealthInfoDataSource extends BaseDataSource {
     Observable<Result<List<HealthInfor>>> getHealthInforsByClassId(int classId, int page);
     Observable<Result<HealthInfor>> getHealthInforDetail(int healthInforId);
+    Observable<Result> collectHealthInfor(int HealthInforId);
 }

@@ -2,14 +2,18 @@ package com.think.awhealth.bean.entity;
 
 import com.litesuits.orm.db.annotation.Column;
 import com.litesuits.orm.db.annotation.NotNull;
+import com.litesuits.orm.db.annotation.PrimaryKey;
 import com.litesuits.orm.db.annotation.Table;
 import com.litesuits.orm.db.annotation.Unique;
+import com.litesuits.orm.db.enums.AssignType;
+
+import cn.bmob.v3.Bmob;
 
 /**
  * Created by XiuWuZhuo on 2016/1/24.
  * Emial:nimdanoob@163.com
  */
-@Table("healthInfors")public class HealthInfor extends Soul{
+@Table("healthInfors")public class HealthInfor {
 
     /**
      * count : 59
@@ -24,12 +28,15 @@ import com.litesuits.orm.db.annotation.Unique;
      * title : 北京市卫生计生委也在铺设一张互联网
      */
 
+    public static final String COL_ID = "inforId";
     private int count;
     private String description;
     private int fcount;
     @NotNull
+    @PrimaryKey(AssignType.BY_MYSELF)
     @Unique
-    @Column("id")private int id;
+    @Column(COL_ID)
+    private int id;
     private String img;
     private int infoclass;
     private String keywords;
@@ -141,6 +148,6 @@ import com.litesuits.orm.db.annotation.Unique;
                 ", title='" + title + '\'' +
                 '}';
     }
-
-
 }
+
+

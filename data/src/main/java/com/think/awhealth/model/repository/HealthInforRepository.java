@@ -1,16 +1,14 @@
-package com.think.awhealth.model.healthInfo;
+package com.think.awhealth.model.repository;
 
 import android.support.annotation.NonNull;
 
 import com.think.awhealth.bean.entity.HealthInfor;
 import com.think.awhealth.model.IHealthInfoDataSource;
-import com.think.awhealth.model.impl.local.HealthInforLocalDataSource;
-import com.think.awhealth.model.impl.remote.HealthInforRemoteDataSource;
+import com.think.awhealth.model.dataSource.local.HealthInforLocalDataSource;
+import com.think.awhealth.model.dataSource.remote.HealthInforRemoteDataSource;
 import com.think.awhealth.result.Result;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.logging.MemoryHandler;
 
 import rx.Observable;
 import rx.functions.Action1;
@@ -66,6 +64,11 @@ public class HealthInforRepository implements IHealthInfoDataSource{
 
     @Override
     public Observable<Result<HealthInfor>> getHealthInforDetail(int healthInforId) {
+        return null;
+    }
+
+    @Override
+    public Observable<Result> collectHealthInfor(int HealthInforId) {
         return null;
     }
 }

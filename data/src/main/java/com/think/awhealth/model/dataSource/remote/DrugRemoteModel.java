@@ -1,4 +1,4 @@
-package com.think.awhealth.model.impl.remote;
+package com.think.awhealth.model.dataSource.remote;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

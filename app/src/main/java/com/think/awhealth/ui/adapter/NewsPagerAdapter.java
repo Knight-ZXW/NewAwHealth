@@ -1,13 +1,11 @@
 package com.think.awhealth.ui.adapter;
 
 import android.content.Context;
-import android.content.res.ObbInfo;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.think.awhealth.Injection;
-import com.think.awhealth.model.impl.remote.HealthInforRemoteDataSource;
 import com.think.awhealth.ui.healthInfor.HealthInforPresenter;
 import com.think.awhealth.ui.healthInfor.HealthNewsFragment;
 
