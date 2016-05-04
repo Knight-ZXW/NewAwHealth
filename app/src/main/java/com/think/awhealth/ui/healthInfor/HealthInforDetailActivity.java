@@ -5,25 +5,39 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.litesuits.orm.db.assit.WhereBuilder;
-import com.think.awhealth.App;
 import com.think.awhealth.R;
 import com.think.awhealth.api.AppConstant;
+import com.think.awhealth.bean.entity.HealthComment;
 import com.think.awhealth.bean.entity.HealthInfor;
-import com.think.awhealth.bean.entity.QuestionDetail;
+import com.think.awhealth.bean.entity.User;
 import com.think.awhealth.database.DbHelper;
+import com.think.awhealth.ui.adapter.CommentAdapter;
 import com.think.awhealth.ui.base.ToolBarActivity;
 import com.think.awhealth.util.AppUtils;
 import com.think.awhealth.util.HtmlRegexpUtil;
 import com.think.awhealth.util.TimeUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -44,13 +58,24 @@ public class HealthInforDetailActivity extends ToolBarActivity {
     SimpleDraweeView mImage;
     @InjectView(R.id.fab)
     FloatingActionButton mFab;
+
+    @InjectView(R.id.id_recommend_edt)
+    EditText recommendEtv;
+    @InjectView(R.id.id_recommend_submit)
+    Button submitRecommendBtn;
+    @InjectView(R.id.id_comment_recyclerView)
+    RecyclerView mCommentRecyclerView;
+
     private int inforId;
     private HealthInfor mHealthInfor;
+    private CommentAdapter mCommentAdapter;
 
     @Override
     protected int provideContentViewId() {
         return R.layout.activity_health_infor_detail;
     }
+
+    List<HealthComment> healthCommentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +89,22 @@ public class HealthInforDetailActivity extends ToolBarActivity {
         //在透明主题中有bug 待解决
 //        ViewCompat.setTransitionName(mImage,View_HEADER_IMAGE);
 //        ViewCompat.setTransitionName(tv_contentTitle,View_HEADER_TITLE);
-        loadData();
+        healthCommentList = new ArrayList<>();
+
+        initVariables();
         initView();
+        loadData();
+    }
+
+    private void initVariables() {
+        mCommentAdapter = new CommentAdapter(this, healthCommentList, R.layout.item_comment);
     }
 
     private void initView() {
 
-        mFab.setOnClickListener(view->{
+        mFab.setOnClickListener(view -> {
 
-            if (!DbHelper.HealthInforDb.isCollected(mHealthInfor.getId())){
+            if (!DbHelper.HealthInforDb.isCollected(mHealthInfor.getId())) {
                 boolean success = DbHelper.HealthInforDb.collectHelathInfor(mHealthInfor);
                 if (success) {
                     Snackbar.make(toolbar, R.string.collect_success, Snackbar.LENGTH_SHORT).show();
@@ -82,6 +114,37 @@ public class HealthInforDetailActivity extends ToolBarActivity {
             } else {
                 DbHelper.HealthInforDb.unCollectedHealthInfor(mHealthInfor.getId());
                 Snackbar.make(toolbar, R.string.collect_repeat, Snackbar.LENGTH_SHORT).show();
+            }
+        });
+        mCommentRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        mCommentRecyclerView.setAdapter(mCommentAdapter);
+    }
+
+    @OnClick(R.id.id_recommend_submit)
+    public void subMitRecommend() {
+        String recommendStr = recommendEtv.getText().toString();
+        HealthComment healthComment = new HealthComment();
+        healthComment.postId = inforId;
+        healthComment.comment = recommendStr;
+        BmobUser currentUser = User.getCurrentUser(this);
+        if (currentUser != null) {
+            healthComment.UserName = currentUser.getUsername();
+        } else {
+            healthComment.UserName = "匿名者";
+        }
+        healthComment.save(this, new SaveListener() {
+            @Override
+            public void onSuccess() {
+                Log.w("logger", "上传成功");
+                recommendEtv.setText("");
+                mCommentAdapter.add(healthComment);
+                mCommentRecyclerView.scrollToPosition(mCommentAdapter.getItemCount());
+                Toast.makeText(getBaseContext(), "评论成功", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(int i, String s) {
+                Log.w("logger", "上传失败");
             }
         });
     }
@@ -94,6 +157,26 @@ public class HealthInforDetailActivity extends ToolBarActivity {
                     this.mHealthInfor = healthInfor;
                     showData(healthInfor);
                 }, throwable -> showError(throwable));
+
+        //加载评论数据刷新视图
+        BmobQuery<HealthComment> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereEqualTo("postId", inforId)
+                .findObjects(this, new FindListener<HealthComment>() {
+                    @Override
+                    public void onSuccess(List<HealthComment> list) {
+                        Log.w("logger", "onSuccess" + list + list.size());
+
+                        healthCommentList.clear();
+                        healthCommentList.addAll(list);
+                        mCommentAdapter.addAll(list);
+                        mCommentAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onError(int i, String s) {
+                        Log.w("logger", "error" + s);
+                    }
+                });
     }
 
     private void showData(HealthInfor healthInfor) {

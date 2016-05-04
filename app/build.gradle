@@ -67,6 +67,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile project(':libraries:headsupcompat')
+    compile project(':libraries:superadapter')
     compile project(':data')
 
 //    内存泄露
