@@ -28,7 +28,6 @@ public class AwRetrofit {
         cacheFile = Environment.getExternalStorageDirectory();
 //        cacheFile = App.getInstance().getExternalCacheDir();
         okHttpClient.setCache(new Cache(cacheFile, 1024 * 1024 * 10));
-
         okHttpClient.setReadTimeout(10, TimeUnit.SECONDS);
         okHttpClient.setWriteTimeout(10, TimeUnit.SECONDS);
         okHttpClient.networkInterceptors().add(OkHttpUtils.getCacheControlInterceptor());

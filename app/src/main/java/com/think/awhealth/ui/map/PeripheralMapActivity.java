@@ -141,7 +141,6 @@ public class PeripheralMapActivity extends AppCompatActivity {
                 mPoiSearch.searchPoiDetail(new PoiDetailSearchOption().poiUid(marker.getExtraInfo().getString("uid")));
                 mMarkerLayout.setVisibility(View.VISIBLE);
                 //为点击Marker 的位置处显示inforWindow
-
                 return true;
             }
         });
@@ -181,7 +180,6 @@ public class PeripheralMapActivity extends AppCompatActivity {
 
 
             }
-
             @Override
             public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
                 //获取place详情页结果

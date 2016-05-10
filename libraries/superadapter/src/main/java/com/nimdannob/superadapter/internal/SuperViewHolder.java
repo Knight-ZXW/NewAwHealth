@@ -28,7 +28,7 @@ public class SuperViewHolder extends RecyclerView.ViewHolder implements ChainSet
 
     private SparseArray<View> childViews = new SparseArray<>();
 
-    public SuperViewHolder(View itemView) {
+    public SuperViewHolder(View itemView)    {
         super(itemView);
     }
 

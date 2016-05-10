@@ -27,7 +27,7 @@ public class LoginPresenter implements LoginContract.Presenter {
             @Override
             public void onFailure(int i, String s) {
                 //todo 行为记录分析
-                mLoginView.loginFailed(i,s);
+                mLoginView.showLoginFaield(i,s);
             }
         });
     }

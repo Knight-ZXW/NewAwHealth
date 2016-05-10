@@ -82,7 +82,6 @@ public class HealthInforDetailActivity extends ToolBarActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.inject(this);
         setSupportActionBar(toolbar);
-
         Intent intent = getIntent();
         inforId = intent.getExtras().getInt("InforId");
 
@@ -104,20 +103,24 @@ public class HealthInforDetailActivity extends ToolBarActivity {
 
         mFab.setOnClickListener(view -> {
 
-            if (!DbHelper.HealthInforDb.isCollected(mHealthInfor.getId())) {
-                boolean success = DbHelper.HealthInforDb.collectHelathInfor(mHealthInfor);
-                if (success) {
-                    Snackbar.make(toolbar, R.string.collect_success, Snackbar.LENGTH_SHORT).show();
-                } else {
-                    Snackbar.make(toolbar, "收藏失败", Snackbar.LENGTH_SHORT).show();
-                }
-            } else {
-                DbHelper.HealthInforDb.unCollectedHealthInfor(mHealthInfor.getId());
-                Snackbar.make(toolbar, R.string.collect_repeat, Snackbar.LENGTH_SHORT).show();
-            }
+            collectHealthInfor();
         });
         mCommentRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         mCommentRecyclerView.setAdapter(mCommentAdapter);
+    }
+
+    private void collectHealthInfor() {
+        if (!DbHelper.HealthInforDb.isCollected(mHealthInfor.getId())) {
+            boolean success = DbHelper.HealthInforDb.collectHelathInfor(mHealthInfor);
+            if (success) {
+                Snackbar.make(toolbar, R.string.collect_success, Snackbar.LENGTH_SHORT).show();
+            } else {
+                Snackbar.make(toolbar, "收藏失败", Snackbar.LENGTH_SHORT).show();
+            }
+        } else {
+            DbHelper.HealthInforDb.unCollectedHealthInfor(mHealthInfor.getId());
+            Snackbar.make(toolbar, R.string.collect_repeat, Snackbar.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.id_recommend_submit)

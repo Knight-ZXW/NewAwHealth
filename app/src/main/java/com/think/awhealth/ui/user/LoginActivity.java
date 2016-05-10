@@ -177,7 +177,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-
         // Reset errors.
         mEmailView.setError(null);
         mPasswordView.setError(null);
@@ -218,6 +217,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
             User user = new User();
             user.setUsername(mEmailView.getText().toString());
             user.setPassword(mPasswordView.getText().toString());
+            //调用presenter层访问网络
             mLoginPresenter.login(user, getBaseContext());
         }
     }
@@ -291,7 +291,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void loginFailed(int meesageId, String message) {
+    public void showLoginFaield(int meesageId, String message) {
         showProgress(false);
         Toast.makeText(this, "密码验证失败", Toast.LENGTH_LONG).show();
     }

@@ -16,7 +16,7 @@ public interface LoginContract {
     interface View extends BaseView<Presenter>{
         void forwardToMainView();
         void forwardToRegister();
-        void loginFailed(int meesageId,String message);
+        void showLoginFaield(int meesageId, String message);
     }
     interface Presenter extends BasePresenter{
         void login(User user, Context context);
